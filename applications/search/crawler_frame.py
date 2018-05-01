@@ -2,7 +2,8 @@ import logging
 from datamodel.search.SkayaniEdwardc6Forsterj_datamodel import SkayaniEdwardc6ForsterjLink, OneSkayaniEdwardc6ForsterjUnProcessedLink
 from spacetime.client.IApplication import IApplication
 from spacetime.client.declarations import Producer, GetterSetter, Getter
-from lxml import html,etree
+#from lxml import html,etree
+#from lxml.html import fromstring
 import re, os
 from time import time
 from uuid import uuid4
@@ -77,13 +78,25 @@ def extract_next_links(rawDataObj):
     soup = bs.BeautifulSoup(sauce, 'lxml')
 
     for url in soup.find_all('a'):
-    	url = url.get('href') 
-    	if ("www" in url or "http" in url):
-    		print("URL: " + url)
-    	elif ("mailto" not in url):
-    		print("Fuceed URL: " + rawDataObj.url + url)
-    		print("sdfhusdf URL: " + url)
-    
+    	url = url.get('href')
+        #print("Actual url: " +url)
+        if (url.startswith("//")):
+    		#print("doubleSLASH"+"http:" + url)
+            print("http:" + url)
+
+        elif(url.startswith("/")):
+            #print("SLASH"+rawDataObj.url + url)
+            print(rawDataObj.url + url)
+
+        elif(url.startswith("http")):
+            #print("HTTP"+url)
+            print(url)
+
+        else:
+            print(rawDataObj.url + url)
+            #print("ELSE"+rawDataObj.url + url)
+
+
     return outputLinks
 
 def is_valid(url):
