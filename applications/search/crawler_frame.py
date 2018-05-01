@@ -14,6 +14,8 @@ from uuid import uuid4
 # My imports
 import bs4 as bs
 from urllib2 import urlopen
+import re
+import urlparse
 
 logger = logging.getLogger(__name__)
 LOG_HEADER = "[CRAWLER]"
@@ -78,23 +80,27 @@ def extract_next_links(rawDataObj):
     soup = bs.BeautifulSoup(sauce, 'lxml')
 
     for url in soup.find_all('a'):
-    	url = url.get('href')
-        #print("Actual url: " +url)
-        if (url.startswith("//")):
-    		#print("doubleSLASH"+"http:" + url)
-            print("http:" + url)
+	    url['href'] = urlparse.urljoin(rawDataObj.url, url['href'])
+	    if ("mailto" not in url['href']):
+	    	print(url['href'])
 
-        elif(url.startswith("/")):
-            #print("SLASH"+rawDataObj.url + url)
-            print(rawDataObj.url + url)
 
-        elif(url.startswith("http")):
-            #print("HTTP"+url)
-            print(url)
+      #   #print("Actual url: " +url)
+      #   if (url.startswith("//")):
+    		# #print("doubleSLASH"+"http:" + url)
+      #       print("http:" + url)
 
-        else:
-            print(rawDataObj.url + url)
-            #print("ELSE"+rawDataObj.url + url)
+      #   elif(url.startswith("/")):
+      #       #print("SLASH"+rawDataObj.url + url)
+      #       print(rawDataObj.url + url)
+
+      #   elif(url.startswith("http")):
+      #       #print("HTTP"+url)
+      #       print(url)
+
+      #   else:
+      #       print(rawDataObj.url + url)
+      #       #print("ELSE"+rawDataObj.url + url)
 
 
     return outputLinks
