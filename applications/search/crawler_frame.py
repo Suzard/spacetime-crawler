@@ -82,17 +82,16 @@ def extract_next_links(rawDataObj):
     sauce = urlopen(rawDataObj.url).read()
     soup = bs.BeautifulSoup(sauce, 'lxml')
 
+    print("php" in "http://www.addthis.com/bookmark.php?v=250&pubid=xa-4d7e35ad5fb0fe07")
 
-    try:
-		script_tags = soup.find('script')
-		print(script_tags)
-		for url in soup.find_all('a'):
+    for url in soup.find_all('a'):
+		try:
 			url['href'] = urljoin(rawDataObj.url, url['href'])
 			if ("mailto" not in url['href'] and url.get('script') == None):
-				outputLinks.append(url['href'])
+				outputLinks.append(url['href'].strip('\u200b'))
 
-    except Exception as e:
-		print(e)
+		except Exception as e:
+			print("Exception: " + str(e))
 
     print(outputLinks[0:20])
     return outputLinks
@@ -104,9 +103,8 @@ def is_valid(url):
     Robot rules and duplication rules are checked separately.
     This is a great place to filter out crawler traps.
     '''
-    print("is_valid in URL: " + url)
     parsed = urlparse(url)
-    if parsed.scheme not in set(["http", "https"]) or "php" in url:
+    if parsed.scheme not in set(["http", "https"]):
         return False
     try:
         if ".ics.uci.edu" in parsed.hostname \
@@ -114,15 +112,18 @@ def is_valid(url):
             + "|wav|avi|mov|mpeg|ram|m4v|mkv|ogg|ogv|pdf" \
             + "|ps|eps|tex|ppt|pptx|doc|docx|xls|xlsx|names|data|dat|exe|bz2|tar|msi|bin|7z|psd|dmg|iso|epub|dll|cnf|tgz|sha1" \
             + "|thmx|mso|arff|rtf|jar|csv"\
-            + "|rm|smil|wmv|swf|wma|zip|rar|gz|pdf)$", parsed.path.lower()):
+            + "|rm|smil|wmv|swf|wma|zip|rar|gz|pdf|php|calendar)$", parsed.path.lower()):
             
             global total_links_processed
             global links_cap
             if (total_links_processed >= links_cap):
             	print("Reached limit!!!!!!!!!!!!!!")
             total_links_processed += 1
+            print("Valid link: " + url)
             print(total_links_processed)
             return True
+        else:
+        	return False
 
 
     except TypeError:
