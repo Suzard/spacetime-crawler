@@ -8,17 +8,21 @@ import re, os
 from time import time
 from uuid import uuid4
 
-from urlparse import urlparse, parse_qs
+from urlparse import urlparse, parse_qs, urljoin
 from uuid import uuid4
 
 # My imports
 import bs4 as bs
 from urllib2 import urlopen
 import re
-import urlparse
 
 logger = logging.getLogger(__name__)
 LOG_HEADER = "[CRAWLER]"
+
+links_processed_dict = {}
+total_links_processed = 0
+page_with_max_outlinks = ""
+links_cap = 3000
 
 @Producer(SkayaniEdwardc6ForsterjLink)
 @GetterSetter(OneSkayaniEdwardc6ForsterjUnProcessedLink)
@@ -28,7 +32,6 @@ class CrawlerFrame(IApplication):
     def __init__(self, frame):
         self.app_id = "SkayaniEdwardc6Forsterj"
         self.frame = frame
-
 
     def initialize(self):
         self.count = 0
@@ -72,37 +75,26 @@ def extract_next_links(rawDataObj):
     
     Suggested library: lxml
     '''
-    print("RawDataObj URL: " + str(rawDataObj.url))
-    print("RawDataObj content type: " + rawDataObj.content)
-    print("RawDataObj error msg: " + str(rawDataObj.error_message))
+    # print("RawDataObj URL: " + str(rawDataObj.url))
+    # print("RawDataObj content type: " + rawDataObj.content)
+    # print("RawDataObj error msg: " + str(rawDataObj.error_message))
 
     sauce = urlopen(rawDataObj.url).read()
     soup = bs.BeautifulSoup(sauce, 'lxml')
 
-    for url in soup.find_all('a'):
-	    url['href'] = urlparse.urljoin(rawDataObj.url, url['href'])
-	    if ("mailto" not in url['href']):
-	    	print(url['href'])
 
+    try:
+		script_tags = soup.find('script')
+		print(script_tags)
+		for url in soup.find_all('a'):
+			url['href'] = urljoin(rawDataObj.url, url['href'])
+			if ("mailto" not in url['href'] and url.get('script') == None):
+				outputLinks.append(url['href'])
 
-      #   #print("Actual url: " +url)
-      #   if (url.startswith("//")):
-    		# #print("doubleSLASH"+"http:" + url)
-      #       print("http:" + url)
+    except Exception as e:
+		print(e)
 
-      #   elif(url.startswith("/")):
-      #       #print("SLASH"+rawDataObj.url + url)
-      #       print(rawDataObj.url + url)
-
-      #   elif(url.startswith("http")):
-      #       #print("HTTP"+url)
-      #       print(url)
-
-      #   else:
-      #       print(rawDataObj.url + url)
-      #       #print("ELSE"+rawDataObj.url + url)
-
-
+    print(outputLinks[0:20])
     return outputLinks
 
 def is_valid(url):
@@ -112,16 +104,26 @@ def is_valid(url):
     Robot rules and duplication rules are checked separately.
     This is a great place to filter out crawler traps.
     '''
+    print("is_valid in URL: " + url)
     parsed = urlparse(url)
-    if parsed.scheme not in set(["http", "https"]):
+    if parsed.scheme not in set(["http", "https"]) or "php" in url:
         return False
     try:
-        return ".ics.uci.edu" in parsed.hostname \
+        if ".ics.uci.edu" in parsed.hostname \
             and not re.match(".*\.(css|js|bmp|gif|jpe?g|ico" + "|png|tiff?|mid|mp2|mp3|mp4"\
             + "|wav|avi|mov|mpeg|ram|m4v|mkv|ogg|ogv|pdf" \
             + "|ps|eps|tex|ppt|pptx|doc|docx|xls|xlsx|names|data|dat|exe|bz2|tar|msi|bin|7z|psd|dmg|iso|epub|dll|cnf|tgz|sha1" \
             + "|thmx|mso|arff|rtf|jar|csv"\
-            + "|rm|smil|wmv|swf|wma|zip|rar|gz|pdf)$", parsed.path.lower())
+            + "|rm|smil|wmv|swf|wma|zip|rar|gz|pdf)$", parsed.path.lower()):
+            
+            global total_links_processed
+            global links_cap
+            if (total_links_processed >= links_cap):
+            	print("Reached limit!!!!!!!!!!!!!!")
+            total_links_processed += 1
+            print(total_links_processed)
+            return True
+
 
     except TypeError:
         print ("TypeError for ", parsed)
