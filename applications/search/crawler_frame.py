@@ -109,7 +109,8 @@ def is_valid(url):
             + "|ps|eps|tex|ppt|pptx|doc|docx|xls|xlsx|names|data|dat|exe|bz2|tar|msi|bin|7z|psd|dmg|iso|epub|dll|cnf|tgz|sha1" \
             + "|thmx|mso|arff|rtf|jar|csv"\
             + "|rm|smil|wmv|swf|wma|zip|rar|gz|pdf)$", parsed.path.lower())\
-            and len(parsed.query) == 0: #Ignore Queries
+            and len(parsed.query) == 0\
+            and not re.match(".*//calendar//.*", parsed.path.lower()): #Ignore Queries
             
                 global total_links_processed
                 global links_cap
