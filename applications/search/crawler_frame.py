@@ -77,12 +77,13 @@ def extract_next_links(rawDataObj):
     # print("RawDataObj URL: " + rawDataObj.url.encode('utf-8'))
     # print("RawDataObj content type: ", type(rawDataObj.content))
     # print("RawDataObj error msg: " + str(rawDataObj.error_message))
-
+	
     if( rawDataObj.http_code > 399 ): #Contains error code
         return outputLinks
 
     soup = bs.BeautifulSoup(rawDataObj.content.decode('utf-8'), 'lxml')
-
+#get number of links while looping to check for outlinks
+#not sure how to validate those outlinks
     for tagObj in soup.find_all('a'):
         if( tagObj.attrs.has_key('href') ):
             # print(tagObj['href'].encode('utf-8'))
@@ -110,8 +111,10 @@ def is_valid(url):
             + "|ps|eps|tex|ppt|pptx|doc|docx|xls|xlsx|names|data|dat|exe|bz2|tar|msi|bin|7z|psd|dmg|iso|epub|dll|cnf|tgz|sha1" \
             + "|thmx|mso|arff|rtf|jar|csv"\
             + "|rm|smil|wmv|swf|wma|zip|rar|gz|pdf)$", parsed.path.lower())\
-            and not re.match(".*calendar.*", parsed.path.lower()):
-            
+            and not re.match(".*calendar.*", parsed.path.lower()):#not visited before either
+            #add to 
+			#dictionary with subdomains
+			#add to not_visited
             global total_links_processed
             global links_cap
             total_links_processed += 1
