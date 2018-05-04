@@ -13,7 +13,7 @@ from uuid import uuid4
 
 # My imports
 import bs4 as bs
-from urllib2 import urlopen
+import urllib2
 import re
 
 logger = logging.getLogger(__name__)
@@ -78,8 +78,7 @@ def extract_next_links(rawDataObj):
     # print("RawDataObj URL: " + str(rawDataObj.url))
     # print("RawDataObj content type: " + rawDataObj.content)
     # print("RawDataObj error msg: " + str(rawDataObj.error_message))
-
-    sauce = urlopen(rawDataObj.url).read()
+    sauce = urllib2.urlopen(rawDataObj.url).read()
     soup = bs.BeautifulSoup(sauce, 'lxml')
 
     print("php" in "http://www.addthis.com/bookmark.php?v=250&pubid=xa-4d7e35ad5fb0fe07")
@@ -88,7 +87,7 @@ def extract_next_links(rawDataObj):
 		try:
 			url['href'] = urljoin(rawDataObj.url, url['href'])
 			if ("mailto" not in url['href'] and url.get('script') == None):
-				outputLinks.append(url['href'].strip('\u200b'))
+				outputLinks.append(url['href'].encode('utf-8'))
 
 		except Exception as e:
 			print("Exception: " + str(e))
@@ -103,10 +102,17 @@ def is_valid(url):
     Robot rules and duplication rules are checked separately.
     This is a great place to filter out crawler traps.
     '''
-    parsed = urlparse(url)
-    if parsed.scheme not in set(["http", "https"]):
-        return False
+
+   # url = url.encode('ascii', 'ignore')
+
+
     try:
+        response = urllib2.request.urlopen(url)
+
+        parsed = urlparse(url)
+        if parsed.scheme not in set(["http", "https"]):
+            return False
+
         if ".ics.uci.edu" in parsed.hostname \
             and not re.match(".*\.(css|js|bmp|gif|jpe?g|ico" + "|png|tiff?|mid|mp2|mp3|mp4"\
             + "|wav|avi|mov|mpeg|ram|m4v|mkv|ogg|ogv|pdf" \
@@ -130,3 +136,6 @@ def is_valid(url):
         print ("TypeError for ", parsed)
         return False
 
+    except urllib2.error.HTTPError:
+        print("HTTPError for ", parsed)
+        return False
