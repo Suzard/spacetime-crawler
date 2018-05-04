@@ -13,8 +13,7 @@ from uuid import uuid4
 
 # My imports
 import bs4 as bs
-from urllib2 import urlopen
-import re
+import urllib2
 
 logger = logging.getLogger(__name__)
 LOG_HEADER = "[CRAWLER]"
@@ -75,26 +74,22 @@ def extract_next_links(rawDataObj):
     
     Suggested library: lxml
     '''
-    # print("RawDataObj URL: " + str(rawDataObj.url))
-    # print("RawDataObj content type: " + rawDataObj.content)
+    # print("RawDataObj URL: " + rawDataObj.url.encode('utf-8'))
+    # print("RawDataObj content type: ", type(rawDataObj.content))
     # print("RawDataObj error msg: " + str(rawDataObj.error_message))
 
-    sauce = urlopen(rawDataObj.url).read()
-    soup = bs.BeautifulSoup(sauce, 'lxml')
+    if( rawDataObj.http_code > 399 ): #Contains error code
+        return outputLinks
 
+    soup = bs.BeautifulSoup(rawDataObj.content.decode('utf-8'), 'lxml')
 
-    try:
-		script_tags = soup.find('script')
-		print(script_tags)
-		for url in soup.find_all('a'):
-			url['href'] = urljoin(rawDataObj.url, url['href'])
-			if ("mailto" not in url['href'] and url.get('script') == None):
-				outputLinks.append(url['href'])
+    for tagObj in soup.find_all('a'):
+        if( tagObj.attrs.has_key('href') ):
+            # print(tagObj['href'].encode('utf-8'))
+            if ( "mailto" not in tagObj['href'] ):
+                outputLinks.append( urljoin(rawDataObj.url.decode('utf-8'), tagObj['href']).encode('utf-8') )
 
-    except Exception as e:
-		print(e)
-
-    print(outputLinks[0:20])
+    # print(outputLinks[0:20])
     return outputLinks
 
 def is_valid(url):
@@ -104,9 +99,9 @@ def is_valid(url):
     Robot rules and duplication rules are checked separately.
     This is a great place to filter out crawler traps.
     '''
-    print("is_valid in URL: " + url)
+    # print("is_valid in URL: " + url)
     parsed = urlparse(url)
-    if parsed.scheme not in set(["http", "https"]) or "php" in url:
+    if parsed.scheme not in set(["http", "https"]):
         return False
     try:
         if ".ics.uci.edu" in parsed.hostname \
@@ -114,15 +109,17 @@ def is_valid(url):
             + "|wav|avi|mov|mpeg|ram|m4v|mkv|ogg|ogv|pdf" \
             + "|ps|eps|tex|ppt|pptx|doc|docx|xls|xlsx|names|data|dat|exe|bz2|tar|msi|bin|7z|psd|dmg|iso|epub|dll|cnf|tgz|sha1" \
             + "|thmx|mso|arff|rtf|jar|csv"\
-            + "|rm|smil|wmv|swf|wma|zip|rar|gz|pdf)$", parsed.path.lower()):
+            + "|rm|smil|wmv|swf|wma|zip|rar|gz|pdf)$", parsed.path.lower())\
+            and not re.match(".*calendar.*", parsed.path.lower()):
             
             global total_links_processed
             global links_cap
-            if (total_links_processed >= links_cap):
-            	print("Reached limit!!!!!!!!!!!!!!")
             total_links_processed += 1
             print(total_links_processed)
+            print("Valid URL: ", url)
             return True
+        else:
+            return False
 
 
     except TypeError:
