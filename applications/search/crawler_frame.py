@@ -86,8 +86,7 @@ def extract_next_links(rawDataObj):
     for tagObj in soup.find_all('a'):
         if( tagObj.attrs.has_key('href') ):
             # print(tagObj['href'].encode('utf-8'))
-            if ( "mailto" not in tagObj['href'] ):
-                outputLinks.append( urljoin(rawDataObj.url.decode('utf-8'), tagObj['href']).encode('utf-8') )
+            outputLinks.append( urljoin(rawDataObj.url.decode('utf-8'), tagObj['href']).encode('utf-8') )
 
     # print(outputLinks[0:20])
     return outputLinks
@@ -110,16 +109,16 @@ def is_valid(url):
             + "|ps|eps|tex|ppt|pptx|doc|docx|xls|xlsx|names|data|dat|exe|bz2|tar|msi|bin|7z|psd|dmg|iso|epub|dll|cnf|tgz|sha1" \
             + "|thmx|mso|arff|rtf|jar|csv"\
             + "|rm|smil|wmv|swf|wma|zip|rar|gz|pdf)$", parsed.path.lower())\
-            and not re.match(".*calendar.*", parsed.path.lower()):
+            and len(parsed.query) == 0: #Ignore Queries
             
-            global total_links_processed
-            global links_cap
-            total_links_processed += 1
-            print(total_links_processed)
-            print("Valid URL: ", url)
-            return True
+                global total_links_processed
+                global links_cap
+                total_links_processed += 1
+                print(total_links_processed)
+                print("Valid URL: ", url)
+                return True
         else:
-            return False
+                return False
 
 
     except TypeError:
