@@ -26,7 +26,7 @@ links_processed = set()
 subdomains_visited = {}
 mostOutLinks_url = ""
 mostOutLinks_total = -1
-links_cap = 100
+links_cap = 3000 #change to lower if want to check limit
 
 
 # My Global End
