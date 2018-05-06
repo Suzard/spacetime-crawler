@@ -59,6 +59,7 @@ www.ics.uci.edu/~kay/courses/10/hw/hw8.html	complete
 www.ics.uci.edu/~bermanb	complete
 www.ics.uci.edu/~stasio/fall04/reading.html	complete
 www.ics.uci.edu/research/device attachment.html	complete
+www.ics.uci.edu/~projects/seminar/Nanda/bio.htm	incomplete
 vision.ics.uci.edu/people/28.html	complete
 futurehealth.ics.uci.edu/news	complete
 www.ics.uci.edu/~wjohnson/BIDA/Ch7/FEVdataAge10to19.txt	complete
@@ -1385,7 +1386,7 @@ wics.ics.uci.edu/wics-fall-quarter-week-4-twitter-qa-and-info-session	complete
 www.ics.uci.edu/~iypark	complete
 mailman.ics.uci.edu/mailman/listinfo/quasar-l	complete
 www.ics.uci.edu/~emilyo/teaching/info122w2014/samplecode/lecture9?C=N;O=A	complete
-www.ics.uci.edu/prospective/zh-tw/opportunities/honors	complete
+cbcl.ics.uci.edu/public_data/SREBP1.glitrBG.FDR_1.5.bed	complete
 www.ics.uci.edu/community/events/competition	incomplete
 www.ics.uci.edu/ugrad/policies/Taking courses for readmission after DQ.php	complete
 duttgroup.ics.uci.edu/publications	incomplete
@@ -2128,6 +2129,7 @@ www.ics.uci.edu/ugrad/sao/SAO_Events.php	complete
 mailman.ics.uci.edu/mailman/admin/45j-tutors	incomplete
 www.ics.uci.edu/~wjohnson/BIDA/Ch13/Ch13RcodeLeukemia.txt	incomplete
 www.ics.uci.edu/%7etheory	incomplete
+hombao.ics.uci.edu?s=projects	complete
 cbcl.ics.uci.edu/public_data/wgEncodeBroadHistoneHsmmH4k20me1StdAlnRep1.REF_chr19.bam	complete
 www.ics.uci.edu/~wjohnson/BIDA/Ch11/WatkinsData.txt	incomplete
 www.ics.uci.edu/~aburtsev	complete
@@ -2135,6 +2137,7 @@ www.ics.uci.edu/~stasio	complete
 www.ics.uci.edu/sceneunderstanding.html	incomplete
 www.ics.uci.edu/community/alumni/index.php/stayconnected/hall_of_fame/stayconnected/stayconnected/stayconnected/hall_of_fame/stayconnected/hall_of_fame/stayconnected/stayconnected/stayconnected/hall_of_fame/hall_of_fame	incomplete
 www.ics.uci.edu/~eppstein/161/matmult.py	complete
+sherlock.ics.uci.edu	complete
 wics.ics.uci.edu/food-and-fun-with-wics?afg25_page_id=1	complete
 wics.ics.uci.edu/food-and-fun-with-wics?afg25_page_id=2	complete
 www.ics.uci.edu/policies/Academic_Honesty.php	complete
@@ -2231,7 +2234,7 @@ wics.ics.uci.edu/cia-info-session-with-wics?share=google-plus-1	complete
 www.ics.uci.edu/~eppstein/cgt/gomoku.html	complete
 wics.ics.uci.edu/studying-with-wics?afg28_page_id=1	complete
 www.ics.uci.edu/~pattis/ICS-46/lectures/notes/dijkstra.txt	incomplete
-wics.ics.uci.edu/studying-with-wics?afg28_page_id=2	complete
+elms.ics.uci.edu	complete
 wics.ics.uci.edu/event/intuit-data-science-tech-talk?ical=1	incomplete
 www.ics.uci.edu/~fowlkes/software?C=D;O=D	complete
 www.ics.uci.edu/community/alumni/index.php/stayconnected/hall_of_fame/stayconnected/stayconnected/stayconnected/hall_of_fame/stayconnected/hall_of_fame/hall_of_fame/inductees.php	complete
@@ -2260,6 +2263,7 @@ www.ics.uci.edu/~dechter/publications.html	complete
 wics.ics.uci.edu/week-5-women-in-technology-talk-by-northrop-grumman	complete
 www.ics.uci.edu/officehrs	complete
 wics.ics.uci.edu/about-community-outreach	complete
+ngs.ics.uci.edu	complete
 www.ics.uci.edu/prospective/zh-tw/contact/contact/student-affairs/​	complete
 www.ics.uci.edu/~fowlkes/software/hme?C=M;O=A	complete
 wics.ics.uci.edu/events/2017-11-25?ical=1/	complete
@@ -2668,6 +2672,7 @@ www.ics.uci.edu/%7Emagda/papers.html	complete
 www.ics.uci.edu/community/alumni/index.php/stayconnected/hall_of_fame/stayconnected/hall_of_fame/hall_of_fame/inductees.php	incomplete
 www.ics.uci.edu/prospective/zh-tw/student-life/bren-ics-organizations	incomplete
 www.ics.uci.edu/~projects/directions.html	incomplete
+computableplant.ics.uci.edu/papers/2004/BGRS-2004-KAP-abstract.html	complete
 mailman.ics.uci.edu/mailman/admin/cs232ta	complete
 www.ics.uci.edu/~nalini	incomplete
 www.ics.uci.edu/~jutts/GPA.txt	incomplete
@@ -2951,6 +2956,7 @@ www.ics.uci.edu/../community/friends/OLD_index.php	complete
 www.ics.uci.edu/ugrad/courses/listing.php?year=2016&level=Lower-Division&department=STATS&program=ALL	complete
 www.ics.uci.edu/index-old.shtml	complete
 www.ics.uci.edu/computing/windows/dropboxes/dropboxes_faq.php	complete
+hombao.ics.uci.edu?s=courses	complete
 www.ics.uci.edu/policies/Grade_Options.php	complete
 support.ics.uci.edu/ltb?action=resetbyquestions	complete
 www.ics.uci.edu/~rickl	complete
@@ -2999,7 +3005,9 @@ www.ics.uci.edu/corporate_partner.php	complete
 www.ics.uci.edu/community/stayconnected/index.php	complete
 www.ics.uci.edu/%7elab/students/printing.php	incomplete
 www.ics.uci.edu/grad/financial	incomplete
+hombao.ics.uci.edu?s=overview	complete
 www.ics.uci.edu/prospective/vi/careers/contact/student-affairs/​	complete
+hombao.ics.uci.edu	complete
 www.ics.uci.edu/~qiuxiz	complete
 www.ics.uci.edu/~bic/order.htm	incomplete
 www.ics.uci.edu/~wscacchi/Pubs-OrgStudies.html	incomplete
@@ -3197,6 +3205,7 @@ wics.ics.uci.edu/category/news/workshop-2?afg45_page_id=2	complete
 wics.ics.uci.edu/category/news/workshop-2?afg45_page_id=3	complete
 computableplant.ics.uci.edu/PNAS.103.5.1533(2006)	incomplete
 vision.ics.uci.edu/people/32.html	incomplete
+hombao.ics.uci.edu?s=research	complete
 www.ics.uci.edu/~fowlkes/publications2.html	incomplete
 www.ics.uci.edu/courses/index.php	complete
 www.ics.uci.edu/~pattis/ICS-46/lectures/notes/b-tree.txt	incomplete
@@ -3265,6 +3274,7 @@ www.ics.uci.edu/~wjohnson/BIDA/Ch10/CSmodel.txt	complete
 mailman.ics.uci.edu/mailman/admin/cert-all	complete
 www.ics.uci.edu/activities.html	complete
 www.ics.uci.edu/~pattis/ICS-46/lectures/notes/aa2.txt	incomplete
+www.ics.uci.edu/prospective/zh-tw/opportunities/honors	complete
 ngs.ics.uci.edu/research/books	complete
 cbcl.ics.uci.edu/doku.php/people?do=recent	incomplete
 www.ics.uci.edu/~wjohnson/BIDA/Ch11/FabricFaultData.txt	incomplete
@@ -3450,6 +3460,7 @@ www.ics.uci.edu/web_data	complete
 futurehealth.ics.uci.edu/resources/knowledge-repository	complete
 wics.ics.uci.edu/events/2017-11-26?ical=1/	complete
 www.ics.uci.edu/~rjammala/contact.html	complete
+futurehealth.ics.uci.edu	complete
 www.ics.uci.edu/~emilyo/teaching/info122w2014/lecture8	incomplete
 www.ics.uci.edu/alumni/stayconnected/index.php	complete
 www.ics.uci.edu/~fowlkes/software/hme_test.m	complete
@@ -3506,12 +3517,15 @@ www.ics.uci.edu/%7Ewics/contact.html	complete
 www.ics.uci.edu/~pattis/ICS-46/weeklyschedule.html	complete
 www.ics.uci.edu/~fowlkes/software/hmeCreateExpert.m	incomplete
 cbcl.ics.uci.edu/public_data/wgEncodeBroadHistoneH1hescH3k4me3StdAlnRep1.REF_chr19.bam	complete
+radicle.ics.uci.edu	complete
 cbcl.ics.uci.edu/doku.php/start?do=login&sectok=	complete
 www.ics.uci.edu/~redmiles/ics125-FQ01/assignment1.html	complete
 wics.ics.uci.edu/web-development-projects-awards?share=google-plus-1	complete
+hombao.ics.uci.edu?s=people	complete
 www.ics.uci.edu/involved/tech_talk.php	complete
 www.ics.uci.edu/community/alumni/index.php/stayconnected/hall_of_fame/stayconnected/stayconnected/stayconnected/hall_of_fame/stayconnected/stayconnected/hall_of_fame/inductees.php	incomplete
 support.ics.uci.edu/faculty	complete
+hombao.ics.uci.edu?s=opportunities	complete
 wics.ics.uci.edu/verizon-info-session?share=google-plus-1	complete
 cbcl.ics.uci.edu/public_data/wgEncodeBroadHistoneHuvecH3k4me1StdAlnRep1.REF_chr19.bam	complete
 wics.ics.uci.edu/category/news/info-session?afg44_page_id=3	complete
@@ -3619,6 +3633,7 @@ evoke.ics.uci.edu/john-seberger	complete
 www.ics.uci.edu/~sysarch/projects/Autovec.html	complete
 wics.ics.uci.edu/events/2018-04-02	incomplete
 cbcl.ics.uci.edu/public_data/wgEncodeBroadHistoneHepg2CtcfStdAlnRep2.REF_chr19.bam	complete
+hombao.ics.uci.edu?s=education	complete
 www.ics.uci.edu/~wjohnson/BIDA/Ch1/CowAbortionData.txt	complete
 www.ics.uci.edu/~emilyo/index.html	complete
 wics.ics.uci.edu/category/news/info-session?afg44_page_id=2	complete
@@ -3704,6 +3719,7 @@ www.ics.uci.edu/~wjohnson/BIDA/Ch1/ArmadilloHuntingRepeatedMeasuresData.txt	comp
 www.ics.uci.edu/students/index.php	incomplete
 cradl.ics.uci.edu/two-papers-published-in-information-software-technology	complete
 vision.ics.uci.edu/links.html	incomplete
+hombao.ics.uci.edu?s=journal	complete
 computableplant.ics.uci.edu/papers/2004/links.html	complete
 computableplant.ics.uci.edu/~guy	incomplete
 www.ics.uci.edu/linux/hosts.php	complete
@@ -3734,6 +3750,7 @@ www.ics.uci.edu/publications/GGWald_manuscript/index.htm	complete
 www.ics.uci.edu/~pouria/socialGen/SocialGen.htm	complete
 www.ics.uci.edu/~schark/lcans.ps.Z	complete
 www.ics.uci.edu/prospective/vi/degrees/computer-science-engineering	incomplete
+vision.ics.uci.edu	incomplete
 www.ics.uci.edu/~redmiles/inf143-SQ08/links.html	incomplete
 www.ics.uci.edu/prospective/en/degrees/computer-science	incomplete
 www.ics.uci.edu/~wjohnson/BIDA/Ch15/DPMdensity.odc	complete
@@ -3947,7 +3964,7 @@ vision.ics.uci.edu/papers/RogezROT_IJCV_2012	complete
 vision.ics.uci.edu/papers/Weber_TCBB_2008	incomplete
 www.ics.uci.edu/ugrad/ICS/ics/ugrad/honors/index	incomplete
 www.ics.uci.edu/employment/index.php	incomplete
-computableplant.ics.uci.edu/papers/2004/BGRS-2004-KAP-abstract.html	complete
+evoke.ics.uci.edu?p=290	complete
 wics.ics.uci.edu/event/the-portal	complete
 www.ics.uci.edu/~zbutler	complete
 cbcl.ics.uci.edu/public_data/wgEncodeBroadHistoneGm12878H3k9acStdAlnRep1.REF_chr19.bam	incomplete
@@ -4074,7 +4091,7 @@ www.ics.uci.edu/ugrad/policies/Computer_Acct_Backup.php	incomplete
 www.ics.uci.edu/~pattis/common/handouts/cygwinclion/commandline.html	incomplete
 www.ics.uci.edu/community/alumni/index.php/stayconnected/hall_of_fame/stayconnected/stayconnected/stayconnected/hall_of_fame/stayconnected/hall_of_fame/hall_of_fame/stayconnected/stayconnected/index.php	incomplete
 www.ics.uci.edu/%7eprojects/board.html	incomplete
-cbcl.ics.uci.edu/public_data/SREBP1.glitrBG.FDR_1.5.bed	complete
+wics.ics.uci.edu/studying-with-wics?afg28_page_id=2	complete
 www.ics.uci.edu/ugrad/degrees/degree_in4matx.php	incomplete
 www.ics.uci.edu/community/alumni/index.php/stayconnected/hall_of_fame/stayconnected/stayconnected/stayconnected/hall_of_fame/stayconnected/hall_of_fame	incomplete
 computableplant.ics.uci.edu/alphasite/publications-annual.html	incomplete
@@ -4247,6 +4264,7 @@ www.ics.uci.edu/ugrad/resources/Title_IX_Resources.php	incomplete
 sdcl.ics.uci.edu/research/past-projects	complete
 www.ics.uci.edu/prospective/ko/opportunities/honors	complete
 cbcl.ics.uci.edu/public_data/wgEncodeBroadHistoneHsmmH3k9me3StdAlnRep1.REF_chr19.bam	incomplete
+malek.ics.uci.edu	complete
 www.ics.uci.edu/~goodrich/teach/hw/final.html	complete
 www.ics.uci.edu/~jutts/HighwaySign.txt	complete
 www.ics.uci.edu/~dsm/dyn/publication.html	incomplete
@@ -4302,7 +4320,7 @@ www.ics.uci.edu/%7Ewics/index.html	incomplete
 wics.ics.uci.edu/events/2018-02-22	complete
 www.ics.uci.edu/~eppstein/troll.html	incomplete
 wics.ics.uci.edu/witi-comes-to-uci?share=facebook	incomplete
-www.ics.uci.edu/~projects/seminar/Nanda/bio.htm	incomplete
+hombao.ics.uci.edu?s=publications	complete
 wics.ics.uci.edu/events/2018-02-23	complete
 www.ics.uci.edu/~chair/aboutirvine.html	incomplete
 www.ics.uci.edu/dept	complete

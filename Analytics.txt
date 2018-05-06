@@ -1,87 +1,63 @@
 Analytics:
 --------------------------------------
-Subdomain: mcs.ics.uci.edu
-Subdomain URLS: 75
-Subdomain: psearch.ics.uci.edu
-Subdomain URLS: 2
-Subdomain: archive.ics.uci.edu
-Subdomain URLS: 2282
-Subdomain: support.ics.uci.edu
-Subdomain URLS: 67
-Subdomain: flamingo.ics.uci.edu
-Subdomain URLS: 53
-Subdomain: cert.ics.uci.edu
-Subdomain URLS: 33
-Subdomain: emj.ics.uci.edu
-Subdomain URLS: 82
-Subdomain: sli.ics.uci.edu
-Subdomain URLS: 780
-Subdomain: ngs.ics.uci.edu
-Subdomain URLS: 87
-Subdomain: tutors.ics.uci.edu
-Subdomain URLS: 62
-Subdomain: sconce.ics.uci.edu
-Subdomain URLS: 15
-Subdomain: cradl.ics.uci.edu
-Subdomain URLS: 35
-Subdomain: isg.ics.uci.edu
-Subdomain URLS: 153
-Subdomain: sana.ics.uci.edu
-Subdomain URLS: 4
-Subdomain: mhcid.ics.uci.edu
-Subdomain URLS: 46
-Subdomain: www-db.ics.uci.edu
-Subdomain URLS: 26
-Subdomain: radicle.ics.uci.edu
-Subdomain URLS: 7
-Subdomain: www.graphics.ics.uci.edu
-Subdomain URLS: 19
-Subdomain: cloudberry.ics.uci.edu
-Subdomain URLS: 31
-Subdomain: graphmod.ics.uci.edu
-Subdomain URLS: 16
-Subdomain: fr.ics.uci.edu
-Subdomain URLS: 16
-Subdomain: graphics.ics.uci.edu
-Subdomain URLS: 20
-Subdomain: wics.ics.uci.edu
-Subdomain URLS: 136
-Subdomain: sdcl.ics.uci.edu
-Subdomain URLS: 70
-Subdomain: www.ics.uci.edu
-Subdomain URLS: 3059
-Subdomain: futurehealth.ics.uci.edu
-Subdomain URLS: 54
-Subdomain: webmail.ics.uci.edu
-Subdomain URLS: 2
-Subdomain: computableplant.ics.uci.edu
-Subdomain URLS: 70
-Subdomain: mailman.ics.uci.edu
-Subdomain URLS: 257
-Subdomain: www.cert.ics.uci.edu
-Subdomain URLS: 146
-Subdomain: sprout.ics.uci.edu
-Subdomain URLS: 7
 Subdomain: asterix.ics.uci.edu
 Subdomain URLS: 6
-Subdomain: vision.ics.uci.edu
-Subdomain URLS: 214
+Subdomain: cbcl.ics.uci.edu
+Subdomain URLS: 376
+Subdomain: computableplant.ics.uci.edu
+Subdomain URLS: 99
+Subdomain: cradl.ics.uci.edu
+Subdomain URLS: 48
 Subdomain: duttgroup.ics.uci.edu
-Subdomain URLS: 37
-Subdomain: swiki.ics.uci.edu
-Subdomain URLS: 5
-Subdomain: mondego.ics.uci.edu
-Subdomain URLS: 22
-Subdomain: kdd.ics.uci.edu
-Subdomain URLS: 3
-Subdomain: honors.ics.uci.edu
-Subdomain URLS: 27
-Subdomain: i-sensorium.ics.uci.edu
-Subdomain URLS: 11
-Subdomain: pregelix.ics.uci.edu
-Subdomain URLS: 11
+Subdomain URLS: 16
+Subdomain: emj.ics.uci.edu
+Subdomain URLS: 89
+Subdomain: evoke.ics.uci.edu
+Subdomain URLS: 26
+Subdomain: futurehealth.ics.uci.edu
+Subdomain URLS: 52
 Subdomain: hombao.ics.uci.edu
-Subdomain URLS: 2
+Subdomain URLS: 16
+Subdomain: honors.ics.uci.edu
+Subdomain URLS: 25
+Subdomain: isg.ics.uci.edu
+Subdomain URLS: 142
+Subdomain: mailman.ics.uci.edu
+Subdomain URLS: 256
+Subdomain: malek.ics.uci.edu
+Subdomain URLS: 3
+Subdomain: mcs.ics.uci.edu
+Subdomain URLS: 75
+Subdomain: mhcid.ics.uci.edu
+Subdomain URLS: 44
+Subdomain: mondego.ics.uci.edu
+Subdomain URLS: 18
+Subdomain: mupro.proteomics.ics.uci.edu
+Subdomain URLS: 1
+Subdomain: ngs.ics.uci.edu
+Subdomain URLS: 62
+Subdomain: radicle.ics.uci.edu
+Subdomain URLS: 5
+Subdomain: scratch.proteomics.ics.uci.edu
+Subdomain URLS: 19
+Subdomain: sdcl.ics.uci.edu
+Subdomain URLS: 38
+Subdomain: sherlock.ics.uci.edu
+Subdomain URLS: 26
+Subdomain: student-council.ics.uci.edu
+Subdomain URLS: 29
+Subdomain: support.ics.uci.edu
+Subdomain URLS: 79
+Subdomain: ugradforms.ics.uci.edu
+Subdomain URLS: 1
+Subdomain: vision.ics.uci.edu
+Subdomain URLS: 215
+Subdomain: wics.ics.uci.edu
+Subdomain URLS: 662
+Subdomain: www-db.ics.uci.edu
+Subdomain URLS: 46
+Subdomain: www.ics.uci.edu
+Subdomain URLS: 3178
 --------------------------------------
-Page with Most Links: http://archive.ics.uci.edu/ml/datasets.html
-Total: 870
+Page with Most Links: http://vision.ics.uci.edu/publications.html
+Total: 558

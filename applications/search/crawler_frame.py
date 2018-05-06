@@ -27,7 +27,8 @@ subdomains_visited = {}
 mostOutLinks_url = ""
 mostOutLinks_total = -1
 links_cap = 3000  # Max amount of downloaded pages before exit
-
+query_cap = 10 # Max amount of times a url's query section will be added to the frontier
+url_query_count = {}
 # My Global End
 
 @Producer(SkayaniEdwardc6ForsterjLink)
@@ -91,7 +92,7 @@ class CrawlerFrame(IApplication):
         print (
             "Time spent this session: ",
             time() - self.start_time, " seconds.")
-        for key, value in subdomains_visited.items():
+        for key, value in sorted(subdomains_visited.items()):
             if ( len(value) == 0):
                 continue
             output_file.write("Subdomain: " + key + "\n")
@@ -139,22 +140,30 @@ def is_valid(url):
     This is a great place to filter out crawler traps.
     '''
     # print("is_valid in URL: " + url)
+    global url_query_count, query_cap
     parsed = urlparse(url)
     if parsed.scheme not in set(["http", "https"]):
         return False
     try:
         # Ignore non-ics.uci.edu; Ignore queries; Ignore Calendar
         if (".ics.uci.edu" in parsed.hostname) \
-                and not re.match(".*\.(css|js|bmp|gif|jpe?g|ico" + "|png|tiff?|mid|mp2|mp3|mp4" \
-                                 + "|wav|avi|mov|mpeg|ram|m4v|mkv|ogg|ogv|pdf" \
-                                 + "|ps|eps|tex|ppt|pptx|doc|docx|xls|xlsx|names|data|dat|exe|bz2|tar|msi|bin|7z|psd|dmg|iso|epub|dll|cnf|tgz|sha1" \
-                                 + "|thmx|mso|arff|rtf|jar|csv" \
-                                 + "|rm|smil|wmv|swf|wma|zip|rar|gz|pdf)$", parsed.path.lower()) \
-                and len(parsed.query) == 0 \
-                and not re.match(".*calendar.*", parsed.path.lower()) \
-                and not re.match(".*/page/[0-9][0-9]*", parsed.path.lower()) \
-                and not re.match(".*/r[0-9]*a?.html", parsed.path.lower()) \
-                and not re.match("/[0-9]+", parsed.path.lower()):
+            and not re.match(".*\.(css|js|bmp|gif|jpe?g|ico" + "|png|tiff?|mid|mp2|mp3|mp4" \
+            + "|wav|avi|mov|mpeg|ram|m4v|mkv|ogg|ogv|pdf" \
+            + "|ps|eps|tex|ppt|pptx|doc|docx|xls|xlsx|names|data|dat|exe|bz2|tar|msi|bin|7z|psd|dmg|iso|epub|dll|cnf|tgz|sha1" \
+            + "|thmx|mso|arff|rtf|jar|csv" \
+            + "|rm|smil|wmv|swf|wma|zip|rar|gz|pdf)$", parsed.path.lower()) \
+            and not re.match(".*calendar.*", parsed.path.lower()) \
+            and not re.match(".*/page/[0-9]+", parsed.path.lower()) \
+            and not re.match(".*/r[0-9]*a?.html", parsed.path.lower()) \
+            and not re.match("/[0-9]+", parsed.path.lower()):
+
+            if not url_query_count.has_key(parsed.path.lower()):
+                url_query_count[parsed.path.lower()] = 0
+            elif url_query_count[parsed.path.lower()] > query_cap:
+                return False
+            elif len(parsed.query) != 0:
+                url_query_count[parsed.path.lower()] += 1
+
             return True
         else:
             return False
