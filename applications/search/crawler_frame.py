@@ -26,8 +26,7 @@ links_processed = set()
 subdomains_visited = {}
 mostOutLinks_url = ""
 mostOutLinks_total = -1
-links_cap = 3000 #change to lower if want to check limit
-
+links_cap = 3000  # Max amount of downloaded pages before exit
 
 # My Global End
 
@@ -39,6 +38,7 @@ class CrawlerFrame(IApplication):
     def __init__(self, frame):
         self.app_id = "SkayaniEdwardc6Forsterj"
         self.frame = frame
+        self.start_time = time()
 
     def initialize(self):
         self.count = 0
@@ -57,19 +57,49 @@ class CrawlerFrame(IApplication):
             self.download_links(unprocessed_links)
 
     def download_links(self, unprocessed_links):
+        global mostOutLinks_url, mostOutLinks_total, links_processed
         for link in unprocessed_links:
             print "Got a link to download:", link.full_url
             downloaded = link.download()
             links = extract_next_links(downloaded)
+            # Added Code
+            links_processed.add( link.full_url )
+            if (not subdomains_visited.has_key(link.domain)):
+                subdomains_visited[link.domain] = set()
+            valid_links = 0
+            # Added Code End
             for l in links:
                 if is_valid(l):
+                    valid_links += 1  # Added Code
+                    subdomains_visited[link.domain].add(l)  # Added Code
                     self.frame.add(SkayaniEdwardc6ForsterjLink(l))
+            # Added Code
+            if ( valid_links > mostOutLinks_total ):
+                mostOutLinks_total = valid_links
+                mostOutLinks_url = link.full_url
+            if ( len(links_processed) > links_cap ):
+                self.shutdown()
+                raise KeyboardInterrupt
+            # Added Code End
 
     def shutdown(self):
+        # All Added
+        output_file = open("Analytics.txt", "w")
+        print("Finished!")
+        output_file.write("Analytics:\n")
+        output_file.write("--------------------------------------\n")
         print (
-            "Time time spent this session: ",
-            time() - self.starttime, " seconds.")
-
+            "Time spent this session: ",
+            time() - self.start_time, " seconds.")
+        for key, value in subdomains_visited.items():
+            if ( len(value) == 0):
+                continue
+            output_file.write("Subdomain: " + key + "\n")
+            output_file.write("Subdomain URLS: " + str(len(value)) + "\n")
+        output_file.write("--------------------------------------\n")
+        output_file.write("Page with Most Links: " + mostOutLinks_url+"\n")
+        output_file.write("Total: " + str(mostOutLinks_total)+"\n")
+        output_file.close()
 
 def extract_next_links(rawDataObj):
     '''
@@ -83,8 +113,6 @@ def extract_next_links(rawDataObj):
     Suggested library: lxml
     '''
     outputLinks = []
-    global mostOutLinks_total
-    global mostOutLinks_url
 
     # print("RawDataObj URL: " + rawDataObj.url.encode('utf-8'))
     # print("RawDataObj content type: ", type(rawDataObj.content))
@@ -100,9 +128,6 @@ def extract_next_links(rawDataObj):
             # print(tagObj['href'].encode('utf-8'))
             outputLinks.append(urljoin(rawDataObj.url.decode('utf-8'), tagObj['href']).encode('utf-8'))
 
-    if (len(outputLinks) > mostOutLinks_total):
-        mostOutLinks_total = len(outputLinks)
-        mostOutLinks_url = rawDataObj.url
     return outputLinks
 
 
@@ -126,27 +151,13 @@ def is_valid(url):
                                  + "|thmx|mso|arff|rtf|jar|csv" \
                                  + "|rm|smil|wmv|swf|wma|zip|rar|gz|pdf)$", parsed.path.lower()) \
                 and len(parsed.query) == 0 \
-                and not re.match("^calendar.*", parsed.path.lower()):
-
-            if (not subdomains_visited.has_key(parsed.netloc)):
-                subdomains_visited[parsed.netloc] = set()
-            subdomains_visited[parsed.netloc].add(url)
-            links_processed.add(url)
-            if (len(links_processed) > links_cap):
-                print("Done")
-                for key, value in subdomains_visited.items():
-                    print(type(key))
-                    print(type(value))
-                    print("Subdomain: "+key)
-                    print("Subdomain URLS: "+str(len(value)))
-                print("Page with Most Links: "+mostOutLinks_url)
-                print("Total: "+str(mostOutLinks_total))
-                raise KeyboardInterrupt
-
+                and not re.match(".*calendar.*", parsed.path.lower()) \
+                and not re.match(".*/page/[0-9][0-9]*", parsed.path.lower()) \
+                and not re.match(".*/r[0-9]*a?.html", parsed.path.lower()) \
+                and not re.match("/[0-9]+", parsed.path.lower()):
             return True
         else:
             return False
-
 
     except TypeError:
         print ("TypeError for ", parsed)
