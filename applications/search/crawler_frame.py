@@ -26,7 +26,7 @@ links_processed = set()
 subdomains_visited = {}
 mostOutLinks_url = ""
 mostOutLinks_total = -1
-links_cap = 3000  # Max amount of downloaded pages before exit
+links_cap = 100  # Max amount of downloaded pages before exit
 query_cap = 10 # Max amount of times a url's query section will be added to the frontier
 url_query_count = {}
 # My Global End
@@ -119,6 +119,9 @@ def extract_next_links(rawDataObj):
     # print("RawDataObj content type: ", type(rawDataObj.content))
     # print("RawDataObj error msg: " + str(rawDataObj.error_message))
 
+    if(rawDataObj.is_redirected):
+        outputLinks.append( rawDataObj.final_url.encode('utf-8') )
+
     if (rawDataObj.http_code > 399):  # Contains error code
         return outputLinks
 
@@ -163,6 +166,13 @@ def is_valid(url):
                 return False
             elif len(parsed.query) != 0:
                 url_query_count[parsed.path.lower()] += 1
+
+            url_path_last = filter(None, parsed.path.lower().split("/"))
+            for i in range(len(url_path_last)):
+                if( i == 0 ):
+                    continue
+                elif( url_path_last[i] == url_path_last[1-1]):
+                    return False
 
             return True
         else:
