@@ -26,7 +26,7 @@ links_processed = set()
 subdomains_visited = {}
 mostOutLinks_url = ""
 mostOutLinks_total = -1
-links_cap = 100  # Max amount of downloaded pages before exit
+links_cap = 3000  # Max amount of downloaded pages before exit
 query_cap = 10 # Max amount of times a url's query section will be added to the frontier
 url_query_count = {}
 # My Global End
@@ -119,8 +119,11 @@ def extract_next_links(rawDataObj):
     # print("RawDataObj content type: ", type(rawDataObj.content))
     # print("RawDataObj error msg: " + str(rawDataObj.error_message))
 
-    if(rawDataObj.is_redirected):
-        outputLinks.append( rawDataObj.final_url.encode('utf-8') )
+    if(rawDataObj.is_redirected):  # Checks to see if url has redirected
+        used_url = rawDataObj.final_url
+        outputLinks.append(rawDataObj.final_url.encode('utf-8'))
+    else:
+        used_url = rawDataObj.url
 
     if (rawDataObj.http_code > 399):  # Contains error code
         return outputLinks
@@ -130,7 +133,7 @@ def extract_next_links(rawDataObj):
     for tagObj in soup.find_all('a'):
         if (tagObj.attrs.has_key('href')):
             # print(tagObj['href'].encode('utf-8'))
-            outputLinks.append(urljoin(rawDataObj.url.decode('utf-8'), tagObj['href']).encode('utf-8'))
+            outputLinks.append(urljoin(used_url.decode('utf-8'), tagObj['href']).encode('utf-8'))
 
     return outputLinks
 
@@ -154,11 +157,13 @@ def is_valid(url):
             + "|wav|avi|mov|mpeg|ram|m4v|mkv|ogg|ogv|pdf" \
             + "|ps|eps|tex|ppt|pptx|doc|docx|xls|xlsx|names|data|dat|exe|bz2|tar|msi|bin|7z|psd|dmg|iso|epub|dll|cnf|tgz|sha1" \
             + "|thmx|mso|arff|rtf|jar|csv" \
-            + "|rm|smil|wmv|swf|wma|zip|rar|gz|pdf)$", parsed.path.lower()) \
+            + "|rm|smil|wmv|swf|wma|zip|rar|gz|pdf" \
+            + "|gctx|npz|npy|bgz|tbi|pbtxt|py|model|hdf5|bed|seq|bw|bam|bigwig|wig|bai|ova)$", parsed.path.lower()) \
             and not re.match(".*calendar.*", parsed.path.lower()) \
             and not re.match(".*/page/[0-9]+", parsed.path.lower()) \
             and not re.match(".*/r[0-9]*a?.html", parsed.path.lower()) \
             and not re.match("/[0-9]+", parsed.path.lower()):
+#            and not re.match(".*/.*data/.*", parsed.path.lower()):
 
             if not url_query_count.has_key(parsed.path.lower()):
                 url_query_count[parsed.path.lower()] = 0
