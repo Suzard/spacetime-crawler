@@ -16,7 +16,7 @@ from uuid import uuid4
 import bs4 as bs
 from urlparse import urljoin
 # My Imports End
-
+#testing
 logger = logging.getLogger(__name__)
 LOG_HEADER = "[CRAWLER]"
 # My Global
