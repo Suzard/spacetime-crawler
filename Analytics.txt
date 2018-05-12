@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Analytics:
 --------------------------------------
 Subdomain: asterix.ics.uci.edu
@@ -65,3 +66,72 @@ Subdomain URLS: 3957
 --------------------------------------
 Page with Most Links: http://fano.ics.uci.edu/cites/Organization
 Total: 925
+=======
+Analytics:
+--------------------------------------
+Subdomain: asterix.ics.uci.edu
+Subdomain URLS: 10
+Subdomain: cert.ics.uci.edu
+Subdomain URLS: 23
+Subdomain: cml.ics.uci.edu
+Subdomain URLS: 69
+Subdomain: computableplant.ics.uci.edu
+Subdomain URLS: 35
+Subdomain: cradl.ics.uci.edu
+Subdomain URLS: 24
+Subdomain: emj.ics.uci.edu
+Subdomain URLS: 73
+Subdomain: evoke.ics.uci.edu
+Subdomain URLS: 8
+Subdomain: fano.ics.uci.edu
+Subdomain URLS: 3313
+Subdomain: fr.ics.uci.edu
+Subdomain URLS: 11
+Subdomain: futurehealth.ics.uci.edu
+Subdomain URLS: 36
+Subdomain: hombao.ics.uci.edu
+Subdomain URLS: 24
+Subdomain: honors.ics.uci.edu
+Subdomain URLS: 18
+Subdomain: isg.ics.uci.edu
+Subdomain URLS: 149
+Subdomain: mailman.ics.uci.edu
+Subdomain URLS: 242
+Subdomain: mcs.ics.uci.edu
+Subdomain URLS: 74
+Subdomain: mhcid.ics.uci.edu
+Subdomain URLS: 33
+Subdomain: netreg.ics.uci.edu
+Subdomain URLS: 1
+Subdomain: ngs.ics.uci.edu
+Subdomain URLS: 62
+Subdomain: radicle.ics.uci.edu
+Subdomain URLS: 5
+Subdomain: sconce.ics.uci.edu
+Subdomain URLS: 10
+Subdomain: sdcl.ics.uci.edu
+Subdomain URLS: 44
+Subdomain: sherlock.ics.uci.edu
+Subdomain URLS: 26
+Subdomain: student-council.ics.uci.edu
+Subdomain URLS: 29
+Subdomain: support.ics.uci.edu
+Subdomain URLS: 70
+Subdomain: swiki.ics.uci.edu
+Subdomain URLS: 69
+Subdomain: ugradforms.ics.uci.edu
+Subdomain URLS: 1
+Subdomain: vision.ics.uci.edu
+Subdomain URLS: 211
+Subdomain: webmail.ics.uci.edu
+Subdomain URLS: 1
+Subdomain: wics.ics.uci.edu
+Subdomain URLS: 134
+Subdomain: www-db.ics.uci.edu
+Subdomain URLS: 78
+Subdomain: www.ics.uci.edu
+Subdomain URLS: 3598
+--------------------------------------
+Page with Most Links: http://fano.ics.uci.edu/cites/Location
+Total: 810
+>>>>>>> fcb76c756109c7586a51a511cc8d778d76be3cc3
