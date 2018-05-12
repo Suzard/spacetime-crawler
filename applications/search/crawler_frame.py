@@ -19,7 +19,6 @@ from urlparse import urljoin
 
 logger = logging.getLogger(__name__)
 LOG_HEADER = "[CRAWLER]"
-#testing
 # My Global
 links_processed = set()
 subdomains_visited = {}
