@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 url	download_complete
 fano.ics.uci.edu/cites/Organization/Univ-of-Nevada-Los-Vegas-Dept-of-Computer-Science.html	complete
 www.ics.uci.edu/~stasio/winter06/Lectures/Lec7code/ComparableExample?C=S;O=D	complete
@@ -14766,4 +14765,3 @@ www.ics.uci.edu/prospective/en/opportunities/research	incomplete
 fano.ics.uci.edu/cites/Document/Strong-separations-for-the-boolean-hierarchy-over-RP.html	incomplete
 mcs.ics.uci.edu/career/career-planning	incomplete
 www.ics.uci.edu/~thornton/ics45c/CodeExamples	incomplete
->>>>>>> fcb76c756109c7586a51a511cc8d778d76be3cc3

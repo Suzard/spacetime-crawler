@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Analytics:
 --------------------------------------
 Subdomain: asterix.ics.uci.edu
@@ -134,4 +133,3 @@ Subdomain URLS: 3598
 --------------------------------------
 Page with Most Links: http://fano.ics.uci.edu/cites/Location
 Total: 810
->>>>>>> fcb76c756109c7586a51a511cc8d778d76be3cc3
